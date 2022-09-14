@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rllMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.main.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tlbToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="@dimen/margin_four">
+
+            <RelativeLayout
+                android:id="@+id/rllToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/imvProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/margin_sixteen"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/this_is_image"
+                    app:srcCompat="@drawable/ic_profile" />
+
+                <com.dalle.order.utils.util.customviews.MediumTextView
+                    android:id="@+id/txvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/imvProfile"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/app_name"
+                    android:textColor="@color/colorTextPriceDark"
+                    android:textSize="@dimen/text_size_twenty" />
+                <RelativeLayout
+                    android:id="@+id/rllWarehouseDropDown"
+                    android:layout_below="@+id/txvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_toEndOf="@+id/imvProfile"
+                    android:paddingEnd="50dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txvWarehouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/margin_twelve"
+                        android:fontFamily="@font/karla"
+                        android:text="@string/categories"
+                        android:textColor="@color/colorGreyWarehouse"
+                        android:textSize="@dimen/text_size_twelve" />
+
+                    <ImageView
+                        android:id="@+id/imvWarehouseDropDown"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="-2dp"
+                        android:layout_toEndOf="@+id/txvWarehouse"
+                        android:src="@drawable/ic_expand_faq" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_one"
+            android:layout_below="@+id/tlbToolbar"
+            android:background="@color/dividerColor" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/frmContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize"
+            android:layout_marginBottom="?actionBarSize" />
+
+        <FrameLayout
+            android:id="@+id/frlSubCatFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bnvItems"
+            android:visibility="gone" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
